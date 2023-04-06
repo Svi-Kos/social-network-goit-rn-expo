@@ -74,7 +74,7 @@ const PostsScreen = ({ route, navigation }) => {
                   backgroundColor: "#2e8b57",
                 }}
                 onPress={() =>
-                  navigation.navigate("Comments", { postId: item.id })
+                  navigation.navigate("Comment", { postId: item.id })
                 }
               >
                 <Text style={styles.text}>COMMENTS</Text>
