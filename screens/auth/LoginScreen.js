@@ -12,10 +12,13 @@ import {
   Keyboard,
   Button,
 } from "react-native";
+import { useDispatch } from "react-redux";
+import { authSignIn } from "../../redux/auth/authOperation";
 
 const LoginScreen = ({ navigation }) => {
   const [email, onChangeEmail] = useState("");
   const [password, onChangePassword] = useState("");
+  const dispatch = useDispatch();
 
   const image = { uri: "https://picsum.photos/id/457/3333/3333" };
 
@@ -27,7 +30,7 @@ const LoginScreen = ({ navigation }) => {
     onChangeEmail("");
     onChangePassword("");
 
-    // dispatch(authSignIn(user));
+    dispatch(authSignIn(user));
   };
 
   return (

@@ -12,11 +12,14 @@ import {
   Keyboard,
   Button,
 } from "react-native";
+import { useDispatch } from "react-redux";
+import { authSignUp } from "../../redux/auth/authOperation";
 
 const RegisterScreen = ({ navigation }) => {
   const [email, onChangeEmail] = useState("");
   const [password, onChangePassword] = useState("");
   const [nickname, onChangeNickname] = useState("");
+  const dispatch = useDispatch();
 
   const user = { nickname, email, password };
 
@@ -28,7 +31,8 @@ const RegisterScreen = ({ navigation }) => {
     onChangeEmail("");
     onChangePassword("");
     onChangeNickname("");
-    // dispatch(authSignUp(user));
+
+    dispatch(authSignUp(user));
   };
 
   return (
