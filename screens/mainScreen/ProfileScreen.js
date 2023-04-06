@@ -1,10 +1,14 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Button, StatusBar } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { authSignOut } from "../../redux/auth/authOperation";
 
 const ProfileScreen = () => {
+  const dispatch = useDispatch();
+
   return (
     <View style={styles.container}>
-      <Text>Profile</Text>
+      <Button title="sign out" onPress={() => dispatch(authSignOut())} />
     </View>
   );
 };
@@ -15,6 +19,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: StatusBar.currentHeight || 0,
   },
 });
 
