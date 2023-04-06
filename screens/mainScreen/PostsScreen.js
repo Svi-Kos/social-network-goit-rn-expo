@@ -1,21 +1,19 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import DefaultScreen from "../nestedScreen/DefaultScreen";
+import CommentScreen from "../nestedScreen/CommentScreen";
+import MapScreen from "../nestedScreen/MapScreen";
+
+const NestedScreen = createStackNavigator();
 
 const PostsScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text>Posts</Text>
-    </View>
+    <NestedScreen.Navigator>
+      <NestedScreen.Screen name="Default" component={DefaultScreen} />
+      <NestedScreen.Screen name="Comment" component={CommentScreen} />
+      <NestedScreen.Screen name="Map" component={MapScreen} />
+    </NestedScreen.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
 
 export default PostsScreen;
